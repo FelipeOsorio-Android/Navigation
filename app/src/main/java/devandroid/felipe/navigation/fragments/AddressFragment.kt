@@ -5,18 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import devandroid.felipe.navigation.R
+import devandroid.felipe.navigation.databinding.FragmentAddressBinding
 import devandroid.felipe.navigation.model.PersonModel
-import devandroid.felipe.navigation.databinding.FragmentPersonalDataBinding
 
-class PersonalDataFragment : Fragment() {
+class AddressFragment : Fragment(){
 
-    private var _binding: FragmentPersonalDataBinding? = null
+    private var _binding: FragmentAddressBinding? = null
     private val binding get() = _binding!!
 
-    private val textName by lazy { binding.textEditName.text.toString() }
-    private val textAge by lazy { binding.textEditAge.text.toString().toInt() }
+    private val textStreet by lazy { binding.textEditStreet.text.toString() }
+    private val textNumber by lazy { binding.textEditNumber.text.toString().toInt() }
     private val btnNext by lazy { binding.btnNext }
 
     override fun onCreateView(
@@ -24,7 +22,7 @@ class PersonalDataFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPersonalDataBinding.inflate(inflater, container, false)
+        _binding = FragmentAddressBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,10 +30,11 @@ class PersonalDataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnNext.setOnClickListener {
-            PersonModel(textName, textAge)
-            findNavController().navigate(R.id.go_to_addressFragment)
+            PersonModel(
+                street = textStreet,
+                number = textNumber
+            )
         }
-
     }
 
     override fun onDestroyView() {
