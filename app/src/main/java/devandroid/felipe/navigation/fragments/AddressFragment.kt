@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import devandroid.felipe.navigation.databinding.FragmentAddressBinding
 import devandroid.felipe.navigation.model.PersonModel
 
@@ -12,6 +13,7 @@ class AddressFragment : Fragment(){
 
     private var _binding: FragmentAddressBinding? = null
     private val binding get() = _binding!!
+    private val args by navArgs<AddressFragmentArgs>()
 
     private val textStreet by lazy { binding.textEditStreet.text.toString() }
     private val textNumber by lazy { binding.textEditNumber.text.toString().toInt() }

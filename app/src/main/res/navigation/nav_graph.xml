@@ -18,5 +18,9 @@
         android:id="@+id/addressFragment"
         android:name="devandroid.felipe.navigation.fragments.AddressFragment"
         android:label="AddressFragment"
-        tools:layout="@layout/fragment_address"/>
+        tools:layout="@layout/fragment_address">
+        <argument
+            android:name="model"
+            app:argType="devandroid.felipe.navigation.model.PersonModel" />
+    </fragment>
 </navigation>

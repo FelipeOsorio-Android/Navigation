@@ -32,8 +32,9 @@ class PersonalDataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnNext.setOnClickListener {
-            PersonModel(textName, textAge)
-            findNavController().navigate(R.id.go_to_addressFragment)
+            val model = PersonModel(textName, textAge)
+            val directions = PersonalDataFragmentDirections.goToAddressFragment(model)
+            findNavController().navigate(directions)
         }
 
     }
