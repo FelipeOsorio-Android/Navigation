@@ -22,5 +22,18 @@
         <argument
             android:name="model"
             app:argType="devandroid.felipe.navigation.model.PersonModel" />
+        <action
+            android:id="@+id/go_to_resumeFragment"
+            app:destination="@id/resumeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resumeFragment"
+        android:name="devandroid.felipe.navigation.fragments.ResumeFragment"
+        android:label="ResumeFragment"
+        tools:layout="@layout/fragment_resume">
+
+        <argument
+            android:name="model"
+            app:argType="devandroid.felipe.navigation.model.PersonModel" />
     </fragment>
 </navigation>

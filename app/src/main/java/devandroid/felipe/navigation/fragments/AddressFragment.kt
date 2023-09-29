@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import devandroid.felipe.navigation.databinding.FragmentAddressBinding
 import devandroid.felipe.navigation.model.PersonModel
@@ -32,10 +33,13 @@ class AddressFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         btnNext.setOnClickListener {
-            PersonModel(
+            val model = args.model.copy(
                 street = textStreet,
                 number = textNumber
             )
+
+            val directions = AddressFragmentDirections.goToResumeFragment(model)
+            findNavController().navigate(directions)
         }
     }
 
